@@ -3,8 +3,6 @@ from urllib.parse import urlparse
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
-
 BITLINK_ENDPOINT = 'https://api-ssl.bitly.com/v4/bitlinks'
 
 
@@ -37,6 +35,7 @@ def is_bitlink(token, url):
 
 
 if __name__ == '__main__':
+    load_dotenv()
     token = os.environ['BITLINK_TOKEN']
     user_url = input('Введите ссылку: ')
     if not is_bitlink(token, parsed_link(user_url)):
