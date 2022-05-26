@@ -19,22 +19,22 @@ pip install -r requirement.txt
 
 Рекомендуется использовать [virtualenv/venv](https://docs.python.org/3/library/venv.html) для изоляции проекта.
 
+Также необходимо добавить переменную окружения ```BITLINK_TOKEN```
+
 ### Пример использования
 
 Укоротить ссылку:
 
 ```console
-$ python3 main.py
-Введите ссылку: https://yandex.ru
-Битлинк https://bit.ly/3PtLnmp
+$ python3 main.py https://google.com
+Битлинк https://bit.ly/3Gmq4Px
 ```
 
 Узнать количество переходов по короткой ссылке:
 
 ```console
-$ python3 main.py
-Введите ссылку: https://bit.ly/3PtLnmp
-По вашей ссылке прошли 8 раз(а)
+python3 main.py https://bit.ly/3Gmq4Px
+По вашей ссылке прошли 1 раз(а)
 ```
 
 ### Цель проекта
