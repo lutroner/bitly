@@ -3,7 +3,7 @@ from urllib.parse import urlparse
 import os
 from dotenv import load_dotenv
 
-BITLINK_ENDPOINT = 'https://api-ssl.bitly.com/v4/bitlinks'
+BITLINK_ENDPOINT = 'https://api-ssl.bitly.com/v4/bitlinks/'
 
 
 def parsed_link(url):
