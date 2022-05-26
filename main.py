@@ -29,7 +29,7 @@ def count_clicks(token, url):
     return response.json()['total_clicks']
 
 
-def is_bitlink(url):
+def is_bitlink(token, url):
     headers = {'Authorization': f'Bearer {token}'}
     url_bitlink_info = f'{BITLINK_ENDPOINT}{url}'
     response = requests.get(url_bitlink_info, headers=headers)
@@ -39,7 +39,7 @@ def is_bitlink(url):
 if __name__ == '__main__':
     token = os.environ['BITLINK_TOKEN']
     user_url = input('Введите ссылку: ')
-    if not is_bitlink(parsed_link(user_url)):
+    if not is_bitlink(token, parsed_link(user_url)):
         print('Битлинк', shorten_link(token, user_url))
     else:
         print(f'По вашей ссылке прошли '
