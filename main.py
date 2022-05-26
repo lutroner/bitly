@@ -10,7 +10,7 @@ BITLINK_ENDPOINT = 'https://api-ssl.bitly.com/v4/bitlinks'
 
 def parsed_link(url):
     url_parsed = urlparse(url)
-    return url_parsed._replace(scheme='').geturl()
+    return str(url_parsed._replace(scheme='').geturl()).replace('//', '')
 
 
 def shorten_link(token, url):
