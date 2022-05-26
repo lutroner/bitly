@@ -5,10 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-ENDPOINT_BITLINK = 'https://api-ssl.bitly.com/v4/bitlinks'
-ENDPOINT_COUNT_LINKS = ('https://api-ssl.bitly.com/'
-                        'v4/bitlinks/{bitlink}/clicks/summary')
-ENDPOINT_BITLINK_INFO = 'https://api-ssl.bitly.com/v4/bitlinks/{bitlink}'
+BITLINK_ENDPOINT = 'https://api-ssl.bitly.com/v4/bitlinks'
 
 
 def parsed_link(url):
@@ -19,14 +16,14 @@ def parsed_link(url):
 def shorten_link(token, url):
     payload = {'long_url': url}
     headers = {'Authorization': f'Bearer {token}'}
-    response = requests.post(ENDPOINT_BITLINK, headers=headers, json=payload)
+    response = requests.post(BITLINK_ENDPOINT, headers=headers, json=payload)
     response.raise_for_status()
     return response.json()['link']
 
 
 def count_clicks(token, url):
     headers = {'Authorization': f'Bearer {token}'}
-    url_bitlink = ENDPOINT_COUNT_LINKS.format(bitlink=url)
+    url_bitlink = f'{BITLINK_ENDPOINT}{url}/clicks/summary'
     response = requests.get(url_bitlink, headers=headers)
     response.raise_for_status()
     return response.json()['total_clicks']
@@ -34,7 +31,7 @@ def count_clicks(token, url):
 
 def is_bitlink(url):
     headers = {'Authorization': f'Bearer {token}'}
-    url_bitlink_info = ENDPOINT_BITLINK_INFO.format(bitlink=url)
+    url_bitlink_info = f'{BITLINK_ENDPOINT}{url}'
     response = requests.get(url_bitlink_info, headers=headers)
     return response.ok
 
@@ -47,4 +44,3 @@ if __name__ == '__main__':
     else:
         print(f'По вашей ссылке прошли '
               f'{count_clicks(token, parsed_link(user_url))} раз(а)')
-
