@@ -19,7 +19,9 @@ pip install -r requirement.txt
 
 Рекомендуется использовать [virtualenv/venv](https://docs.python.org/3/library/venv.html) для изоляции проекта.
 
-Также необходимо добавить переменную окружения ```BITLINK_TOKEN```
+Также необходимо добавить переменную окружения ```BITLINK_TOKEN``` в которую поместить токен API Bitly.
+Bitly предлагает несколько видов токенов, но для данной программы хватит GENERIC ACCESS TOKEN.
+Ссылка для генерации токена указана  [на странице документации Bitly](https://dev.bitly.com/get_started.html).
 
 ### Пример использования
 
