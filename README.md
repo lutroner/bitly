@@ -35,7 +35,7 @@ $ python3 main.py https://google.com
 Узнать количество переходов по короткой ссылке:
 
 ```console
-python3 main.py https://bit.ly/3Gmq4Px
+$ python3 main.py https://bit.ly/3Gmq4Px
 По вашей ссылке прошли 1 раз(а)
 ```
 
